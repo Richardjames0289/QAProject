@@ -1,5 +1,7 @@
 package qAProject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +14,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import qAProject.domain.ToDoList;
+import qAProject.service.ToDoListService;
+
 @RestController
 @RequestMapping("/todolist")
 public class ToDoListController {
 
 @Autowired
-private TodoListService service;
+private ToDoListService service;
 
 //create
 @PostMapping("/create")
-public ResponseEntity<ToDoList> create(@RequestBody TodoList a) {
-	return new ResponseEntity <TodoList> (this.service.create(a), HttpStatus.CREATED);
+public ResponseEntity<ToDoList> create(@RequestBody ToDoList a) {
+	return new ResponseEntity <ToDoList> (this.service.create(a), HttpStatus.CREATED);
 }
 
 //Read
@@ -44,7 +49,7 @@ public ResponseEntity<ToDoList> update(@PathVariable long id, @RequestBody ToDoL
 @DeleteMapping("/delete/{id}")
 public ResponseEntity<Boolean> delete(@PathVariable long id) {
 	return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
-	
+}
 //Findbyobject
 @GetMapping("/readobject/{object}")
 public ResponseEntity <List<ToDoList>>findByObject (@PathVariable String object) {
