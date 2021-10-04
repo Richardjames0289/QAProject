@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ToDoListDomain {
+public class ToDoList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -41,17 +41,17 @@ public class ToDoListDomain {
 	public void setTodo2(String todo2) {
 		this.todo2 = todo2;
 	}
-	public ToDoListDomain(long id, String todo1, String todo2, String todo3) {
+	public ToDoList(long id, String todo1, String todo2, String todo3) {
 		super();
 		this.id = id;
 		this.todo1 = todo1;
 		this.todo2 = todo2;
 		this.todo3 = todo3;
 	}
-	public ToDoListDomain() {
+	public ToDoList() {
 		super();
 	}
-	public ToDoListDomain(String todo1, String todo2, String todo3) {
+	public ToDoList(String todo1, String todo2, String todo3) {
 		super();
 		this.todo1 = todo1;
 		this.todo2 = todo2;
@@ -76,7 +76,7 @@ public class ToDoListDomain {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ToDoListDomain other = (ToDoListDomain) obj;
+		ToDoList other = (ToDoList) obj;
 		return id == other.id && Objects.equals(todo1, other.todo1) && Objects.equals(todo2, other.todo2)
 				&& Objects.equals(todo3, other.todo3);
 	}
