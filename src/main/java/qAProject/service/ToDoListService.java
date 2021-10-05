@@ -21,8 +21,10 @@ public class ToDoListService {
 	}
 
 //create
+	
 	public ToDoList create(ToDoList a) {
-		return this.repo.saveAndFlush(a);
+		return this.repo.save(a);
+
 	}
 
 //ReadAll
