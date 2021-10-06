@@ -1,1 +1,0 @@
-INSERT INTO `to_do_list` (`todo1`, `todo2`, `todo3`) VALUES ('Dog', 'Shopping', 'Project');

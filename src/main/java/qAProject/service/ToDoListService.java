@@ -1,6 +1,5 @@
 package qAProject.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class ToDoListService {
 	}
 
 //create
-
+	
 	public ToDoList create(ToDoList a) {
 		return this.repo.save(a);
 
@@ -31,10 +30,7 @@ public class ToDoListService {
 //ReadAll
 
 	public List<ToDoList> readAll() {
-		List<ToDoList> result = this.repo.findAll();
-		System.out.println(result);
-		return result;
-		
+		return this.repo.findAll();
 	}
 //Read id
 
@@ -53,13 +49,16 @@ public class ToDoListService {
 
 //delete
 	public boolean delete(long id) {
+		if (!this.repo.existsById(id)) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Object Found");
+		}
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id);
 	}
 
-////Findbyname
-//	public List<ToDoList> readByName(String object) {
-//		return this.repo.readByName(object);
-//	}
+//Findbyname
+	public List<ToDoList> findByName(String object) {
+		return this.repo.findByName(object);
+	}
 
 }
