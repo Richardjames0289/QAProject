@@ -50,9 +50,9 @@ public ResponseEntity<ToDoList> update(@PathVariable long id, @RequestBody ToDoL
 public ResponseEntity<Boolean> delete(@PathVariable long id) {
 	return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
 }
-//Findbyobject
-@GetMapping("/readobject/{object}")
-public ResponseEntity <List<ToDoList>>findByObject (@PathVariable String object) {
-	return new ResponseEntity <List<ToDoList>>(this.service.findByName(object), HttpStatus.OK);
-}
+////Findbyobject
+//@GetMapping("/readobject/{object}")
+//public ResponseEntity <List<ToDoList>>findByObject (@PathVariable String object) {
+//	return new ResponseEntity <List<ToDoList>>(this.service.readByName(object), HttpStatus.OK);
+//}
 }

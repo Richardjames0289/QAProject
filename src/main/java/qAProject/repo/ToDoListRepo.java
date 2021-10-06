@@ -9,9 +9,12 @@ import org.springframework.stereotype.Repository;
 import qAProject.domain.ToDoList;
 
 @Repository
-public interface ToDoListRepo extends JpaRepository< ToDoList, Long> {
+public interface ToDoListRepo extends JpaRepository<ToDoList, Long> {
 
 		@Query(value = "SELECT * FROM ToDoList Where todo1 = ?1", nativeQuery = true)
-		List<ToDoList>findByName(String object);
+		List<ToDoList>readByName(String object);
+
+		
+		
 		
 }
