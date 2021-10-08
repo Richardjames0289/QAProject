@@ -23,3 +23,7 @@ o	Screenshot of your test results, including coverage report.
 
 Jira link:
 https://richardjames.atlassian.net/jira/software/projects/QAP/boards/2/roadmap
+
+
+I Experienced serveral merge conflicts when merging my final dev branch into main. To overcome these, I ended up
+resolving the merge conflicts locally before pushing them up to github as it could not resolve them on the site.
